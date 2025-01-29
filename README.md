@@ -35,19 +35,19 @@ Ensure you have the following installed:
 
 
 ***API Documentation***:
-    ***Base URL***:
-        ```
-        http://localhost:8080
+1. Base URL:
+    ```
+    http://localhost:8080
 
 
-1. Get Intern Details
+2. Get Intern Details
     
     Endpoint: 
     ```
     GET '/'
 
 
- 2.  Response Format:
+ 3.  Response Format:
         ```
         {
             "email": "your-email@example.com",
@@ -55,7 +55,7 @@ Ensure you have the following installed:
             "github_url": "https://github.com/yourusername/your-repo"
         }
 
-3. Example Usage (cURL):
+4. Example Usage (cURL):
     ```
         curl -X GET http://localhost:8080
 
