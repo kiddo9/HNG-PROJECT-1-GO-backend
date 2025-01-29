@@ -35,19 +35,22 @@ Ensure you have the following installed:
 
 
 ***API Documentation***:
-1. Base URL:
+1. Local URL:
     ```
     http://localhost:8080
 
+2. Online URL:
+    ```
+    https://hng-project-1-go-backend-production.up.railway.app/
 
-2. Get Intern Details
+3. Get Intern Details
     
     Endpoint: 
     ```
     GET '/'
 
 
- 3.  Response Format:
+ 4.  Response Format:
         ```
         {
             "email": "your-email@example.com",
@@ -55,7 +58,7 @@ Ensure you have the following installed:
             "github_url": "https://github.com/yourusername/your-repo"
         }
 
-4. Example Usage (cURL):
+5. Example Usage (cURL):
     ```
         curl -X GET http://localhost:8080
 
