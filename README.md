@@ -41,18 +41,21 @@ Ensure you have the following installed:
 
 
 1. Get Intern Details
+    
+    Endpoint: 
     ```
-    Endpoint: GET '/'
+    GET '/'
 
-    Response Format:
-    ```
+
+ 2.  Response Format:
+        ```
         {
             "email": "your-email@example.com",
             "current_datetime": "2025-01-30T09:30:00Z",
             "github_url": "https://github.com/yourusername/your-repo"
         }
 
-    Example Usage (cURL):
+3. Example Usage (cURL):
     ```
         curl -X GET http://localhost:8080
 
@@ -63,9 +66,5 @@ Folder Structure
     │── go.mod
     │── go.sum
     │── README.md
-License
-This project is licensed under the MIT License.
 
-Contact
-GitHub: kiddo9
 
