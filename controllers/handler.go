@@ -17,7 +17,7 @@ func GetInternDetails(w http.ResponseWriter, r *http.Request) {
 	response := models.UserResponse{
 		Email:       "paschalelechi0@gmail.com",
 		CurrentTime: time.Now().Format(time.RFC3339),
-		GitHubURL:   "",
+		GitHubURL:   "https://github.com/kiddo9/HNG-PROJECT-1-GO-backend",
 	}
 
 	json.NewEncoder(w).Encode(response)
