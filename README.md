@@ -34,30 +34,29 @@ Ensure you have the following installed:
     curl -X GET http://localhost:8080
 
 
-***API Documentation***
-```
-    Base URL
-    http://localhost:8080
+***API Documentation***:
+    ***Base URL***:
+        ```
+        http://localhost:8080
 
 
 1. Get Intern Details
-```
+    ```
     Endpoint: GET '/'
 
-    Response Format:
+Response Format:
+    ```
+        {
+            "email": "your-email@example.com",
+            "current_datetime": "2025-01-30T09:30:00Z",
+            "github_url": "https://github.com/yourusername/your-repo"
+        }
 
-    {
-    "email": "your-email@example.com",
-    "current_datetime": "2025-01-30T09:30:00Z",
-    "github_url": "https://github.com/yourusername/your-repo"
-    }
-
-    Example Usage (cURL):
-
-    curl -X GET http://localhost:8080
+*** Example Usage (cURL)***:
+    ```
+        curl -X GET http://localhost:8080
 
 Folder Structure
-
 
     HNG-PROJECT-1-GO-backend/
     │── main.go
@@ -69,5 +68,4 @@ This project is licensed under the MIT License.
 
 Contact
 GitHub: kiddo9
-Email: your.email@example.com
-yaml
+
