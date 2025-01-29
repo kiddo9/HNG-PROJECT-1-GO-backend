@@ -44,7 +44,7 @@ Ensure you have the following installed:
     ```
     Endpoint: GET '/'
 
-Response Format:
+    Response Format:
     ```
         {
             "email": "your-email@example.com",
@@ -52,7 +52,7 @@ Response Format:
             "github_url": "https://github.com/yourusername/your-repo"
         }
 
-*** Example Usage (cURL)***:
+    Example Usage (cURL):
     ```
         curl -X GET http://localhost:8080
 
