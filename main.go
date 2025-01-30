@@ -16,12 +16,10 @@ func corsMiddleware(next http.Handler) http.Handler {
 
 func main() {
 	mux := http.NewServeMux()
+	handler := corsMiddleware(mux)
 
 	// This handles ALL methods, but wrapped with middleware
 	mux.HandleFunc("/", controllers.GetInternDetails)
-
-	// Apply CORS middleware
-	handler := corsMiddleware(mux)
 
 	fmt.Println("Server running on :8080")
 	http.ListenAndServe(":8080", handler)
