@@ -7,20 +7,12 @@ import (
 )
 
 // CORS Middleware
-func corsMiddleware(next http.Handler) http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin", "*")
-		next.ServeHTTP(w, r)
-	})
-}
-
 func main() {
 	mux := http.NewServeMux()
-	handler := corsMiddleware(mux)
 
 	// This handles ALL methods, but wrapped with middleware
 	mux.HandleFunc("/", controllers.GetInternDetails)
 
 	fmt.Println("Server running on :8080")
-	http.ListenAndServe(":8080", handler)
+	http.ListenAndServe(":8080", nil)
 }
