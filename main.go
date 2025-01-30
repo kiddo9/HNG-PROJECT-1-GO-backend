@@ -7,12 +7,31 @@ import (
 )
 
 // CORS Middleware
+func corsMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+		w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+
+		// Handle OPTIONS request (Preflight check)
+		if r.Method == "OPTIONS" {
+			w.WriteHeader(http.StatusOK)
+			return
+		}
+
+		next.ServeHTTP(w, r)
+	})
+}
+
 func main() {
 	mux := http.NewServeMux()
 
-	// This handles ALL methods, but wrapped with middleware
+	// Register routes **before** applying middleware
 	mux.HandleFunc("/", controllers.GetInternDetails)
 
+	// Wrap `mux` with CORS middleware after setting routes
+	handler := corsMiddleware(mux)
+
 	fmt.Println("Server running on :8080")
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8080", handler)
 }
