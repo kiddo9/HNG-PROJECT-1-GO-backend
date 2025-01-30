@@ -6,12 +6,23 @@ import (
 	"net/http"
 )
 
+func corsMiddleware(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Access-Contorl-Allow-Origin", "*")
+		w.Header().Set("Access-Contorl-Allow-Header", "Content-Type, Authorization")
+
+		next.ServeHTTP(w, r)
+	})
+}
+
 func main() {
-	http.HandleFunc("/", controllers.GetInternDetails)
+	mux := http.NewServeMux()
+	handler := corsMiddleware(mux)
+
+	mux.HandleFunc("/", controllers.GetInternDetails)
+
 	var port = ":8080"
 	fmt.Println("server running on port: " + port)
-	err := http.ListenAndServe(port, nil)
-	if err != nil {
-		fmt.Println("server not running", err)
-	}
+	http.ListenAndServe(port, handler)
+
 }
