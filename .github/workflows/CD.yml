@@ -29,4 +29,5 @@ jobs:
         run: go build
 
       - name: Deploy Application
-        run: go run main.go
+        run: |
+          echo "Deploying Application"
